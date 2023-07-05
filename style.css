@@ -12,10 +12,12 @@
 }
 /*-----------------  Base  -----------------*/
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: 'PT Serif', serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'PT Serif', serif;
+  font-weight: bold;
+  font-stretch: expanded;
 }
 body {
   height: 100vh;
@@ -42,11 +44,29 @@ h1 {
   padding: 3rem; 
   border-radius: 1rem;
 }
+
 .wheel_box {
   position: relative;
   width: 100%;
   height: 100%;
+  border: 10px solid var(--gold_color);
+  border-radius: 50%;
+  overflow: hidden;
+  animation: blinkLight 1s infinite;
 }
+
+@keyframes blinkLight {
+  0% {
+    box-shadow: 0 0 10px var(--gold_color), 0 0 20px var(--gold_color);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--gold_color), 0 0 40px var(--gold_color);
+  }
+  100% {
+    box-shadow: 0 0 10px var(--gold_color), 0 0 20px var(--gold_color);
+  }
+}
+
 #spinWheel {
   max-height: inherit;
   width: inherit;

@@ -21,26 +21,28 @@ const spinValues = [
 const size = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10];
 /* --------------- Background Colors  --------------------- */
 var spinColors = [
-  "#E74C3C",
-  "#7D3C98",
-  "#2E86C1",
-  "#138D75",
-  "#F1C40F",
-  "#D35400",
-  "#138D75",
-  "#F1C40F",
-  "#b163da",
-  "#E74C3C",
-  "#7D3C98",
-  "#138D75",
+  "#ECE0D9", // Dirty white
+  "#FF0000", // Bright red
+  "#ECE0D9", // Dirty white
+  "#FF0000", // Bright red
+  "#ECE0D9", // Dirty white
+  "#FF0000", // Bright red
+  "#ECE0D9", // Dirty white
+  "#FF0000", // Bright red
+  "#ECE0D9", // Dirty white
+  "#FF0000", // Bright red
+  "#ECE0D9", // Dirty white
+  "#FF0000", // Bright red
+  // ...
 ];
+
 /* --------------- Chart --------------------- */
 /* --------------- Guide : https://chartjs-plugin-datalabels.netlify.app/guide/getting-started.html --------------------- */
 let spinChart = new Chart(spinWheel, {
   plugins: [ChartDataLabels],
   type: "pie",
   data: {
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    labels: ["$8", "$3", "SPIN", "$1", "$38", "$138", "$0.5", "$3", "$18", "$1", "$0.5", "$5"],
     datasets: [
       {
         backgroundColor: spinColors,
@@ -57,14 +59,20 @@ let spinChart = new Chart(spinWheel, {
         display: false,
       },
       datalabels: {
-        rotation: 90,
-        color: "#ffffff",
+        rotation: 0, // Set rotation to 0 to keep labels horizontal
+        anchor: 'center', // Position the labels at the center of each section
+        align: 'center', // Align the labels to the center of each section
+        color: "#000000",
         formatter: (_, context) => context.chart.data.labels[context.dataIndex],
-        font: { size: 24 },
+        font: {
+           size: 23, 
+           weight: 'bold',
+          }, // Decrease font size for better fit=
       },
     },
   },
 });
+
 /* --------------- Display Value Based On The Angle --------------------- */
 const generateValue = (angleValue) => {
   for (let i of spinValues) {
