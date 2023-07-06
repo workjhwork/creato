@@ -21,7 +21,10 @@
 }
 body {
   height: 100vh;
-  background: var(--body_background);
+  background-image: url("Image/bg-red.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 /*-----------------  Styling Start  -----------------*/
 h1 {
