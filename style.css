@@ -21,7 +21,7 @@
 }
 body {
   height: 100vh;
-  background-image: url("Image/bg-red.jpg");
+  background-image: url("Image/bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
