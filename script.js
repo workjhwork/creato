@@ -37,6 +37,22 @@ var spinColors = [
   // ...
 ];
 
+var textColors = [
+  "#FF0000", // Bright red
+  "#FFFFFF", // White
+  "#FF0000", // Bright red
+  "#FFFFFF", // White
+  "#FF0000", // Bright red
+  "#FFFFFF", // White
+  "#FF0000", // Bright red
+  "#FFFFFF", // White
+  "#FF0000", // Bright red
+  "#FFFFFF", // White
+  "#FF0000", // Bright red
+  "#FFFFFF"  // White
+];
+
+
 /* --------------- Chart --------------------- */
 /* --------------- Guide : https://chartjs-plugin-datalabels.netlify.app/guide/getting-started.html --------------------- */
 let spinChart = new Chart(spinWheel, {
@@ -63,14 +79,15 @@ let spinChart = new Chart(spinWheel, {
         rotation: 90, // Set rotation to 0 to keep labels horizontal
         anchor: 'center', // Position the labels at the center of each section
         align: 'end', // Align the labels to the center of each section
-        color: "#000000",
-        textShadowColor: "#000000",
+        color: textColors,
+        textShadowColor: "#ffd700",
         textShadowBlur: 10,
         textShadowOffsetX: 0,
         textShadowOffsetY: 0,
         formatter: (_, context) => context.chart.data.labels[context.dataIndex],
         font: {
-          family: 'PT Serif, serif',
+          // family: 'PT Serif, serif',
+          family: 'Roboto',
           size: 14,
           weight: 'normal',
           style: 'italic',
@@ -84,7 +101,7 @@ let spinChart = new Chart(spinWheel, {
 const generateValue = (angleValue) => {
   for (let i of spinValues) {
     if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
-      text.innerHTML = `<p>Congratulations, You Have Won RM${i.value} ! </p>`;
+      // text.innerHTML = `<p>Congratulations, You Have Won RM${i.value} ! </p>`;
       spinBtn.disabled = false;
       break;
     }
@@ -96,7 +113,8 @@ let resultValue = 101;
 spinBtn.addEventListener("click", () => {
   spinBtn.disabled = true;
   text.innerHTML = `<p>Best Of Luck!</p>`;
-  let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
+  // let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
+  let randomDegree = Math.random() < 0.5 ? 39 : 230;
   let rotationInterval = window.setInterval(() => {
     spinChart.options.rotation = spinChart.options.rotation + resultValue;
     spinChart.update();
