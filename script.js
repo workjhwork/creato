@@ -2,6 +2,7 @@
 const spinWheel = document.getElementById("spinWheel");
 const spinBtn = document.getElementById("spin_btn");
 const text = document.getElementById("text");
+Chart.defaults.font.family = "Verdana";
 /* --------------- Minimum And Maximum Angle For A value  --------------------- */
 const spinValues = [
   { minDegree: 61, maxDegree: 90, value: 100 },
@@ -52,7 +53,7 @@ let spinChart = new Chart(spinWheel, {
   },
   options: {
     responsive: true,
-    animation: { duration: 0 },
+    animation: { duration: 1 },
     plugins: {
       tooltip: false,
       legend: {
@@ -61,12 +62,12 @@ let spinChart = new Chart(spinWheel, {
       datalabels: {
         rotation: 0, // Set rotation to 0 to keep labels horizontal
         anchor: 'center', // Position the labels at the center of each section
-        align: 'center', // Align the labels to the center of each section
+        align: 'end', // Align the labels to the center of each section
         color: "#000000",
         formatter: (_, context) => context.chart.data.labels[context.dataIndex],
         font: {
-           size: 23, 
-           weight: 'bold',
+           size: 18, 
+           weight: 'normal',
           }, // Decrease font size for better fit=
       },
     },
