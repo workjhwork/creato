@@ -69,7 +69,7 @@ let spinChart = new Chart(spinWheel, {
   },
   options: {
     responsive: true,
-    animation: { duration: 1 },
+    animation: { duration: 1},
     plugins: {
       tooltip: false,
       legend: {
@@ -159,3 +159,4 @@ spinBtn.addEventListener("click", () => {
   }, 10);
 });
 /* --------------- End Spin Wheel  --------------------- */
+

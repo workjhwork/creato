@@ -26,7 +26,28 @@
      </div> 
     <div id="text"><p>Wheel Of Fortune</p></div>
   </div>
+
+  <!-- Add the audio element -->
+  <audio id="myAudio" src="Song/bgm.mp3" preload="auto"></audio>
+
   <!---------------  SCRIPT  --------------------->
-  <script src="script.js"></script>  
+  <script>
+    // Get the play button element
+    const playButton = document.getElementById("spin_btn");
+
+    // Get the audio element
+    const audio = document.getElementById("myAudio");
+
+    // Add a click event listener to the play button
+    playButton.addEventListener("click", () => {
+      // Start playing the audio
+      audio.play().catch(error => {
+        console.error("Failed to play audio:", error);
+      });
+    });
+  </script>
+  
+  <script src="script.js"></script>
+
 </body>   
 </html>
