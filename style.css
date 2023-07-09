@@ -23,7 +23,7 @@
 
 body {
   height: 100vh;
-  background-image: url("Image/g.jpg");
+  background-image: url("Image/bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -61,6 +61,18 @@ h1 {
   overflow: hidden;
   animation: blinkLight 1s infinite;
 }
+
+/* @keyframes blinkLight {
+  0% {
+    box-shadow: 0 0 20px var(--gold_color), 0 0 40px var(--gold_color);
+  }
+  50% {
+    box-shadow: 0 0 40px var(--gold_color), 0 0 80px var(--gold_color);
+  }
+  100% {
+    box-shadow: 0 0 20px var(--gold_color), 0 0 40px var(--gold_color);
+  }
+} */
 
 @keyframes blinkLight {
   0% {
@@ -155,13 +167,41 @@ h1 {
   opacity: 0;
   visibility: hidden;
   z-index: 9999;
+  text-align: center; /* Add this line */
 }
+
 
 .popup.show {
   opacity: 1;
   visibility: visible;
   animation: fadeIn 0.3s ease-in-out, scaleIn 0.3s ease-in-out;
 }
+
+.popup-button {
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.popup-button:hover {
+  background-color: #ffa500;
+  transform: scale(1.05);
+}
+
+.popup-button:active {
+  background-color: #ff9900;
+  transform: scale(0.95);
+}
+
 
 @keyframes fadeIn {
   0% {
@@ -180,5 +220,15 @@ h1 {
     transform: translate(-50%, -50%) scale(1);
   }
 }
+
+.header {
+  background-color: black;
+  text-align: center;
+}
+
+.header img {
+  width: 100px; /* Adjust the width as needed */
+}
+
 
 

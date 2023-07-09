@@ -14,7 +14,7 @@ const spinValues = [
   { minDegree: 241, maxDegree: 270, value: 50 },
   { minDegree: 211, maxDegree: 240, value: 3 },
   { minDegree: 181, maxDegree: 210, value: 18 },
-  { minDegree: 151, maxDegree: 180, value: 1 },
+  { minDegree: 151, maxDegree: 180, value: 3 },
   { minDegree: 121, maxDegree: 150, value: 50 },
   { minDegree: 91, maxDegree: 120, value: 5 },
 ];
@@ -59,7 +59,7 @@ let spinChart = new Chart(spinWheel, {
   plugins: [ChartDataLabels],
   type: "pie",
   data: {
-    labels: ["RM8", "RM3", "SPIN", "RM1", "RM38", "RM99", "RM50", "RM3", "RM18", "RM1", "RM50", "RM5"],
+    labels: ["RM8", "RM3", "SPIN", "RM1", "RM38", "RM99", "RM50", "RM3", "RM18", "RM3", "RM50", "RM5"],
     datasets: [
       {
         backgroundColor: spinColors,
@@ -114,8 +114,11 @@ const generateValue = (angleValue) => {
       // Create a new element for the pop-up animation
       const popup = document.createElement("div");
       popup.classList.add("popup");
-      popup.innerHTML = `<p>Congratulations, You Have Won RM${i.value}!</p>`;
-
+      popup.innerHTML = `
+        <p>Congratulations, You Have Won RM${i.value}!</p>
+        <button class="popup-button">Claim Prize</button>
+      `;
+      
       // Append the pop-up element to the document body
       document.body.appendChild(popup);
 
@@ -125,9 +128,9 @@ const generateValue = (angleValue) => {
       }, 100);
 
       // Enable the spin button after a delay
-      setTimeout(() => {
-        spinBtn.disabled = false;
-      }, 1500);
+      // setTimeout(() => {
+      //   spinBtn.disabled = false;
+      // }, 1500);
 
       break;
     }
@@ -142,7 +145,9 @@ spinBtn.addEventListener("click", () => {
   spinBtn.disabled = true;
   text.innerHTML = `<p>Best Of Luck!</p>`;
   // let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
-  let randomDegree = Math.random() < 0.5 ? 39 : 230;
+  // let randomDegree = Math.random() < 0.5 ? 39 : 230;
+  let randomDegree = Math.random() < 0.33 ? 39 : Math.random() < 0.67 ? 165 : 230;
+
   let rotationInterval = window.setInterval(() => {
     spinChart.options.rotation = spinChart.options.rotation + resultValue;
     spinChart.update();
@@ -156,7 +161,7 @@ spinBtn.addEventListener("click", () => {
       count = 0;
       resultValue = 101;
     }
-  }, 10);
+  }, 20);
 });
 /* --------------- End Spin Wheel  --------------------- */
 

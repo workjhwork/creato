@@ -17,7 +17,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script> 
 </head>
 <body>
-  <h1>Jackpot</h1>
+  <div class="header">
+    <img src="Image/logo.png" alt="Logo">
+  </div>
   <div class="container">
      <div class="wheel_box">
       <canvas id="spinWheel"></canvas>
@@ -39,12 +41,12 @@
     const audio = document.getElementById("myAudio");
 
     // Add a click event listener to the play button
-    playButton.addEventListener("click", () => {
-      // Start playing the audio
-      audio.play().catch(error => {
-        console.error("Failed to play audio:", error);
-      });
-    });
+    // playButton.addEventListener("click", () => {
+    //   // Start playing the audio
+    //   audio.play().catch(error => {
+    //     console.error("Failed to play audio:", error);
+    //   });
+    // });
   </script>
   
   <script src="script.js"></script>
