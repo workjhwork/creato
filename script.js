@@ -123,8 +123,9 @@ const generateValue = (angleValue) => {
       const claimButton = popup.querySelector(".popup-button");
       claimButton.addEventListener("click", () => {
         // Replace 'your-whatsapp-number' with your actual WhatsApp number
-        const whatsappNumber = '0182774276';
-        const message = `Congratulations! I won RM${i.value}!`;
+        const whatsappNumber = '+60182774276';
+        const message = `Amoi ! Nk Claim ID Ong Ong Kuat Muntah Jackpot.
+        Congratulations! I won RM${i.value}!`;
         const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
         
         // Open the WhatsApp link in a new window/tab
