@@ -88,8 +88,8 @@ let spinChart = new Chart(spinWheel, {
         font: {
           // family: 'PT Serif, serif',
           family: 'Roboto',
-          size: 14,
-          weight: 'normal',
+          size: 13,
+          weight: 'bold',
           style: 'italic',
         },
       },
@@ -118,6 +118,18 @@ const generateValue = (angleValue) => {
         <p>Congratulations, You Have Won RM${i.value}!</p>
         <button class="popup-button">Claim Prize</button>
       `;
+
+      // Add an event listener to the "Claim Prize" button
+      const claimButton = popup.querySelector(".popup-button");
+      claimButton.addEventListener("click", () => {
+        // Replace 'your-whatsapp-number' with your actual WhatsApp number
+        const whatsappNumber = '0182774276';
+        const message = `Congratulations! I won RM${i.value}!`;
+        const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        
+        // Open the WhatsApp link in a new window/tab
+        window.open(whatsappLink, '_blank');
+      });
       
       // Append the pop-up element to the document body
       document.body.appendChild(popup);
